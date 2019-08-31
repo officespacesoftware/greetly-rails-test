@@ -18,5 +18,17 @@ describe Task do
       expect(task_1.due_date).to eq(future_date)
     end
 
+    it 'should have a name' do
+      expect(task_1.name).to eq('Purchase a Kia Telluride')
+    end
+
+    it 'should have a completion status' do
+      expect(task_1.complete).to eq(false)
+    end
+
+    it 'should belong to a list' do
+      expect(task_1.list_id).to eq(1)
+    end
+
   end
 end
