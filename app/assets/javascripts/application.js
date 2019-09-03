@@ -16,8 +16,9 @@
 //= require_self
 //= require bootstrap-datepicker
 
+
 $(document).ready(function(){
-  $('.datepicker').datepicker({
+  $(".datepicker").datepicker({
     format: "yyyy/mm/dd",
     autoclose: true,
   });
