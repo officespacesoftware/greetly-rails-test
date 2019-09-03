@@ -5,6 +5,9 @@ TodoRailsTest::Application.routes.draw do
     end
   end
 
+  delete 'lists/', :to => 'lists#destroy'
+  put 'lists/', :to => 'lists#update'
+
   root to: 'lists#index'
 
   # The priority is based upon order of creation:

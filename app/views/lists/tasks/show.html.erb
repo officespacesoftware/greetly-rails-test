@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @task.name %></h1>
+<h3>Due By: <%= @task.due_date %></h3>
+<%= @task.complete == true ? "Complete" : "Not Complete"%>
+<br><br><br>
 
 <%= link_to 'Edit', edit_list_task_path(@list, @task) %> |
-<%= link_to 'Back', list_tasks_path(@list) %>
+<%= link_to "#{@list.title} Tasks", list_tasks_path(@list) %>
