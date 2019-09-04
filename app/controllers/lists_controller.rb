@@ -2,11 +2,17 @@ class ListsController < ApplicationController
   # GET /lists
   def index
     @lists = List.all
+    if request_is_json?
+      render :json => { status: 200, lists: @lists }
+    end
   end
 
   # GET /lists/1
   def show
     @list = List.find(params[:id])
+    if request_is_json?
+      render :json => { status: 200, lists: @list }
+    end
   end
 
   # GET /lists/new
@@ -23,10 +29,18 @@ class ListsController < ApplicationController
   def create
     @list = List.new(params[:list])
 
-    if @list.save
-      redirect_to @list, notice: 'List was successfully created.'
+    if request_is_json?
+      if @list.save
+        render :json => { status: 201, list: @list }
+      else
+        render :json => { :errors => @list.errors.full_messages }
+      end
     else
-      render action: "new"
+      if @list.save
+        redirect_to @list, notice: 'List was successfully created.'
+      else
+        render action: "new"
+      end
     end
   end
 
@@ -34,10 +48,18 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
 
-    if @list.update_attributes(params[:list])
-      redirect_to @list, notice: "List #{@list.title} was successfully updated."
+    if request_is_json?
+      if @list.update_attributes(params[:list])
+        render :json => { status: 200, list: @list }
+      else
+        render :json => { :errors => @list.errors.full_messages }
+      end
     else
-      render action: "edit"
+      if @list.update_attributes(params[:list])
+        redirect_to @list, notice: "List #{@list.title} was successfully updated."
+      else
+        render action: "edit"
+      end
     end
   end
 
@@ -45,7 +67,19 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find(params[:id])
     @list.destroy
+    if request_is_json?
+      if @list.save
+        render :json => { status: 200, destroyed: true }
+      else
+        render :json => { :errors => @list.errors.full_messages }
+      end
+    else
+      redirect_to lists_url, notice: "List #{@list.title} was successfully deleted."
+    end
+  end
 
-    redirect_to lists_url, notice: "List #{@list.title} was successfully deleted."
+  private
+  def request_is_json?
+    response.request.env["CONTENT_TYPE"] == "application/json"
   end
 end

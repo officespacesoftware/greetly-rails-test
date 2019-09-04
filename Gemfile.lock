@@ -163,6 +163,7 @@ DEPENDENCIES
   guard-rails
   guard-rspec
   jquery-rails
+  pry
   rails (= 3.2.17)
   rspec-rails
   simplecov
