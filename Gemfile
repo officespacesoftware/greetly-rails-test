@@ -7,6 +7,7 @@ gem 'bootstrap-datepicker-rails'
 
 group :test, :development do
   gem "pry"
+  gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'guard-rails'
   gem 'guard-rspec'

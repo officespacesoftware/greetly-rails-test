@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe "as a user" do
   describe 'when visiting /lists/:id/tasks' do
