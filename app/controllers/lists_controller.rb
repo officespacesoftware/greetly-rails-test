@@ -11,7 +11,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     if request_is_json?
-      render :json => { status: 200, lists: @list }
+      render :json => { status: 200, list: @list }
     end
   end
 
