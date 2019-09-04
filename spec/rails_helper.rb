@@ -6,7 +6,6 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
-
 require 'database_cleaner'
 
 DatabaseCleaner.strategy = :truncation
@@ -14,8 +13,9 @@ DatabaseCleaner.strategy = :truncation
 
 RSpec.configure do |config|
   config.include Capybara::DSL
-
-  config.before(:suite) do
+  config.infer_spec_type_from_file_location!
+  
+  config.before(:each) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
@@ -26,5 +26,4 @@ RSpec.configure do |config|
     end
   end
 
-  config.order = "random"
 end
