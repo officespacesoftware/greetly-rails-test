@@ -1,8 +1,12 @@
 module ApplicationHelper
   def sortable(column)
     title = column.titleize
-    direction = (column == params[:sort] && params[:direction] == "asc") ? "desc" : "asc"
-    title = direction == "asc" ? "#{column.titleize}↑" : "#{column.titleize}↓"
-    link_to title, :sort => column, :direction => direction
+    direction = (column == params[:sort] && params[:direction] == "desc") ? "asc" : "desc"
+    if params[:direction]
+      arrow = direction == "asc" ? "↑" : "↓"
+    else
+      arrow = "↓"
+    end
+    link_to title + arrow, :sort => column, :direction => direction
   end
 end

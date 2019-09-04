@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <title>TodoRailsTest</title>
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
@@ -8,6 +9,10 @@
   </head>
   <body>
     <div class="container">
+      <% if notice %>
+        <p id="notice" class="alert alert-success" role="alert"><%= notice %></p>
+      <% end %>
+      
       <%= yield %>
     </div>
   </body>

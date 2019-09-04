@@ -35,7 +35,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
 
     if @list.update_attributes(params[:list])
-      redirect_to @list, notice: 'List was successfully updated.'
+      redirect_to @list, notice: "List #{@list.title} was successfully updated."
     else
       render action: "edit"
     end
@@ -46,6 +46,6 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @list.destroy
 
-    redirect_to lists_url
+    redirect_to lists_url, notice: "List #{@list.title} was successfully deleted."
   end
 end
