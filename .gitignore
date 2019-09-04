@@ -14,5 +14,8 @@
 /log
 /log/*.log
 /tmp
-/coverage
+/coverage/assets
+/coverage/.last_run.json
+/coverage/.resultset.json
+/coverage/.resultset.json.lock
 .DS_Store
