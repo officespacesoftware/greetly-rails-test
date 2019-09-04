@@ -10,4 +10,5 @@ group :test, :development do
   gem 'guard-rails'
   gem 'guard-rspec'
   gem 'simplecov'
+  gem 'capybara'
 end
