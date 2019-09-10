@@ -12,7 +12,6 @@ class Lists::TasksController < ApplicationController
   # GET /lists/tasks
   def index
     @tasks = @list.tasks.all
-    binding.pry
   end
 
   # GET /lists/tasks/1
