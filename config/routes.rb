@@ -7,6 +7,8 @@ TodoRailsTest::Application.routes.draw do
 
   root to: 'lists#index'
 
+  get '/lists/:list_id/tasks' => 'lists/tasks#sort_due_date', :as => :sort_due_date
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
