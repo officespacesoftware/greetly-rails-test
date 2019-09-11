@@ -3,15 +3,13 @@ class Lists::TasksController < ApplicationController
     @list = List.find(params[:list_id])
   end
 
-  # def sort_due_date
-  #   @list_tasks = @list.tasks.all
-  #   @tasks = @list_tasks.sort_by {|task| task.due_date}
-  #   binding.pry
-  # end
-
   # GET /lists/tasks
   def index
     @tasks = @list.tasks.all
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @tasks, status: 201 }
+    end
   end
 
   # GET /lists/tasks/1
