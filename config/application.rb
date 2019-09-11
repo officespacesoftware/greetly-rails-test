@@ -19,7 +19,8 @@ require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env)
+# Bundler.require(:default, Rails.env)
+Bundler.require(*Rails.groups)
 
 module TodoRailsTest
   class Application < Rails::Application
@@ -49,7 +50,7 @@ module TodoRailsTest
     # config.encoding = "utf-8" #
 
     # Configure sensitive parameters which will be filtered from the log file.
-    # config.filter_parameters += [:password] # 
+    # config.filter_parameters += [:password] #
 
     # Enable escaping HTML in JSON.
     # config.active_support.escape_html_entities_in_json = true #

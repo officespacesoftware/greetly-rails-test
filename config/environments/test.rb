@@ -1,4 +1,5 @@
-TodoRailsTest::Application.configure do
+# TodoRailsTest::Application.configure do
+Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # The test environment is used exclusively to run your application's
@@ -7,12 +8,14 @@ TodoRailsTest::Application.configure do
   # and recreated between test runs. Don't rely on the data there!
   config.cache_classes = true
 
+  # Do not eager load code on boot. This avoids loading your whole application
+  # just for the purpose of running a single test. If you are using a tool that
+  # preloads Rails for running tests, you may have to set it to true.
+  config.eager_load = false
+
   # Configure static asset server for tests with Cache-Control for performance
   config.serve_static_assets = true
-  config.static_cache_control = "public, max-age=3600"
-
-  # Log error messages when you accidentally call methods on nil
-  config.whiny_nils = true
+  config.static_cache_control = 'public, max-age=3600'
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true

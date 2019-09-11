@@ -1,4 +1,5 @@
-TodoRailsTest::Application.configure do
+# TodoRailsTest::Application.configure do
+Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -64,7 +65,16 @@ TodoRailsTest::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
+  # Disable automatic flushing of the log to improve performance.
+  # config.autoflush_log = false
+
+  # Use default logging formatter so that PID and timestamp are not suppressed.
+  config.log_formatter = ::Logger::Formatter.new
+
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  # Do not dump schema after migrations.
+  config.active_record.dump_schema_after_migration = false
 end
