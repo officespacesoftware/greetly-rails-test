@@ -4,6 +4,6 @@
   </div>
 <% end %>
 
-
-<%= link_to 'Edit', edit_list_task_path(@list, @task) %> |
-<%= link_to 'Back', list_tasks_path(@list) %>
+<br>
+<%= link_to 'Edit', edit_list_task_path(@list, @task), class: "btn btn-primary" %>
+<%= link_to 'Back', list_tasks_path(@list), class: "btn btn-primary" %>
