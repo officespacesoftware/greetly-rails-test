@@ -1,8 +1,8 @@
 # Greetly Ruby on Rails Test
 
 ## Instructions
-1. [Fork](https://help.github.com/articles/fork-a-repo) and clone this repository
-2. Complete "Requirements"
+1. [Fork](https://help.github.com/articles/fork-a-repo) and clone this repository **X**
+2. Complete "Requirements" **X**
 3. For a big plus, deploy to a free Heroku container **Keep in mind that you will need to update Rails and use a PostgreSQL db instead**
 
 
@@ -10,9 +10,9 @@
 Update the existing code to provide the following functionality:
 
 1. Add ability to set a due date on a Task **X**
-2. Add ability to sort Tasks by due date
+2. Add ability to sort Tasks by due date **X**
 3. Update the ListsController so that every action responds to JSON **X**
-4. Apply Bootstrap [CSS](http://getbootstrap.com/css/) and [components](http://getbootstrap.com/components/) to make the UI more appealing
+4. Apply Bootstrap [CSS](http://getbootstrap.com/css/) and [components](http://getbootstrap.com/components/) to make the UI more appealing **X**
 
 These updates should be **_all your own work_**, and it does not need to be complicated.  Fewer tested features are preferred over many buggy features.
 
