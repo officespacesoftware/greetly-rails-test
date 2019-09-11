@@ -5,3 +5,8 @@
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
 TodoRailsTest::Application.config.secret_token = '7b816386d3e2df9ff9002977a83a8e85f087bd1c29afac65fa41511902b10ce9bce2cb3ba1103cdef64e272ca72d4466e1a300eed70b494bb2d30a1ea3b16c6c'
+# You can use `rake secret` to generate a secure secret key.
+
+# Make sure your secret_key_base is kept private
+# if you're sharing your code publicly.
+TodoRailsTest::Application.config.secret_key_base = 'your-secret-token'
