@@ -7,7 +7,7 @@ const sortByDueDate = () => {
     e.preventDefault();
 
     let listId = $(this).attr('data_id')
-    // console.log(listId)
+    // Send get request for all tasks
     $.getJSON('/lists/' + listId + '/tasks', function(data) {
 
       // Clear table of tasks to fill in new sorted tasks
@@ -15,19 +15,19 @@ const sortByDueDate = () => {
       tasksTable.empty()
 
       let tasks = data
-
       // Sort tasks by due date
       let sortedTasks = tasks.sort((a, b) => {
-        // console.log(a.due_date - b.due_date)
+        // parse dates into milliseconds for an accurate sort
         let dataA = Date.parse(a.due_date)
         let dataB = Date.parse(b.due_date)
+        // sort due_dates with oldest at the top
         return dataA - dataB
       })
-      console.log(sortedTasks)
+      // console.log(sortedTasks)
 
       // Take sorted tasks and create new table
       sortedTasks.forEach(task => {
-        let sortByDueDate = `
+        let sortedByDueDate = `
           <tr>
             <td class="h4">${task.name}</td>
             <td class="h4">${task.due_date}</td>
@@ -37,7 +37,7 @@ const sortByDueDate = () => {
             <td class="h4"><a href="/lists/${listId}/tasks/${task.id}" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Destroy</a></td>
           </tr>
         `
-        tasksTable.append(sortByDueDate);
+        tasksTable.append(sortedByDueDate);
       });
     })
   })
