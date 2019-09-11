@@ -5,12 +5,11 @@
 <% end %>
 
 <div>
-  <h2>
-    <!-- <b>Title:</b> -->
+  <h1>
     <%= @list.title %>
-  </h2>
+  </h1>
 </div>
 
-<%= link_to 'Tasks', list_tasks_path(@list), class: "btn btn-primary" %> 
-<%= link_to 'Edit', edit_list_path(@list), class: "btn btn-primary" %> 
+<%= link_to 'Tasks', list_tasks_path(@list), class: "btn btn-primary" %>
+<%= link_to 'Edit', edit_list_path(@list), class: "btn btn-primary" %>
 <%= link_to 'Back', lists_path, class: "btn btn-primary" %>

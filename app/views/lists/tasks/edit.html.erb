@@ -1,6 +1,6 @@
 <h1>Editing Task</h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', list_task_path(@list, @task) %> |
-<%= link_to 'Back', list_tasks_path(@list) %>
+<br>
+<%= link_to 'Show', list_task_path(@list, @task), class: "btn btn-primary" %>
+<%= link_to 'Back', list_tasks_path(@list), class: "btn btn-primary" %>
