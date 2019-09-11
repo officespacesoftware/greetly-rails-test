@@ -1,25 +1,33 @@
-<h1>List Tasks</h1>
+<h1><%= @list.title %> Tasks</h1>
+<hr></hr>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Complete?</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <% @tasks.each do |task| %>
+<table class="table table-hover">
+  <thead>
     <tr>
-      <td><%= task.name %></td>
-      <td><%= task.complete %></td>
-      <td><%= link_to 'Show', list_task_path(@list, task) %></td>
-      <td><%= link_to 'Edit', edit_list_task_path(@list, task) %></td>
-      <td><%= link_to 'Destroy', list_task_path(@list, task), method: :delete, confirm: 'Are you sure?' %></td>
+      <th scope="col" class="h2">Name</th>
+      <th scope="col" class="h2">Due Date</th>
+      <th scope="col" class="h2">Complete?</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody id="tasks-table">
+    <% @tasks.each do |task| %>
+      <tr>
+        <td class="h4"><%= task.name %></td>
+        <td class="h4"><%= task.due_date %></td>
+        <td class="h4"><%= task.complete %></td>
+        <td class="h4"><%= link_to 'Show', list_task_path(@list, task) %></td>
+        <td class="h4"><%= link_to 'Edit', edit_list_task_path(@list, task) %></td>
+        <td class="h4"><%= link_to 'Delete', list_task_path(@list, task), method: :delete, confirm: 'Are you sure?' %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <br />
 
-<%= link_to 'Back', lists_path %> |
-<%= link_to 'New Task', new_list_task_path(@list) %>
+<%= link_to 'Back', lists_path, class: "btn btn-primary" %>
+<%= link_to 'New Task', new_list_task_path(@list), class: "btn btn-primary" %>
+<%= submit_tag "Sort Due Date", id: "sort-due-date", class: "btn btn-primary", data_id: @list.id %>

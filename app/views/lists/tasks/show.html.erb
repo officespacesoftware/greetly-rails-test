@@ -1,5 +1,9 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+  <div class="alert alert-success" role="alert">
+    <p id="notice"><%= notice %></p>
+  </div>
+<% end %>
 
-
-<%= link_to 'Edit', edit_list_task_path(@list, @task) %> |
-<%= link_to 'Back', list_tasks_path(@list) %>
+<br>
+<%= link_to 'Edit', edit_list_task_path(@list, @task), class: "btn btn-primary" %>
+<%= link_to 'Back', list_tasks_path(@list), class: "btn btn-primary" %>

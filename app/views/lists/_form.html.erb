@@ -1,7 +1,7 @@
 <%= form_for(@list) do |f| %>
   <% if @list.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger" role="alert">
+      <h4><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
       <ul>
         <% @list.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -10,11 +10,11 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>

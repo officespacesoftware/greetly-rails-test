@@ -1,11 +1,15 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+  <div class="alert alert-success" role="alert">
+    <p id="notice"><%= notice %></p>
+  </div>
+<% end %>
 
-<p>
-  <b>Title:</b>
-  <%= @list.title %>
-</p>
-
-<%= link_to 'Tasks', list_tasks_path(@list) %> |
-
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+<div>
+  <h1>
+    <%= @list.title %>
+  </h1>
+</div>
+<hr></hr>
+<%= link_to 'Tasks', list_tasks_path(@list), class: "btn btn-primary" %>
+<%= link_to 'Edit', edit_list_path(@list), class: "btn btn-primary" %>
+<%= link_to 'Back', lists_path, class: "btn btn-primary" %>

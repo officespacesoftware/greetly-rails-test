@@ -6,6 +6,10 @@ class Lists::TasksController < ApplicationController
   # GET /lists/tasks
   def index
     @tasks = @list.tasks.all
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @tasks, status: 201 }
+    end
   end
 
   # GET /lists/tasks/1
